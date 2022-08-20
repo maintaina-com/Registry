@@ -1,0 +1,2 @@
+# Registry
+The Horde Registry
