@@ -2,10 +2,34 @@
 
 This package is an experimental PHP8.1+ reinvention of horde/core's Horde_Registry class. It will be different in approach, incompatible in design and existing apps will likely not work with it, at least unmodified. It is much too early to use this for anything serious.
 
-## Design ideas
+## Mission Statement (Draft)
+
+A horde setup is a highly configurable multi-app plugin system in which the actual apps are not the root items.
+This is fundamentally different from most frameworks which center around individual apps and services.
+
+Registry provides the necessary egg to easily create the chicken by separating discovery from bootstrapping.
+Registry provides a lean API for dependency managers or setup tools to automatically make the environment run.
+
+### Discovery phase tasks
+
+- Assume an autoloader is already present
+- Setup the DI container
+- Create a registry implementation by autodetection or explicitly
+- Find out which apps, drivers, services, themes etc are installed and their necessary bootstrapping metadata
+- Serialize the config egg for runtime phase
+
+### Runtime phase tasks
+
+- Assume an autoloader is already present
+- Retrieve the config egg by convention
+- Set up the DI container according to config
+
+## Misc Design ideas
 
 - Leave autoloading to a distinct installation process. The goto solution currently is composer. The recent composer version v2.4 provides other runtime utilities. Anything that is not strictly PSR-0 or strictly PSR-4 must be worked around by the consuming application, a provided class map or a loader class. Registry has no stakes in autoloading, it requires it.
-
+- prefer capability meta packages (provides) over package types.
+- Be sane about factoring out. Keep necessary bootstrapping parts builtin, factor out what can be loaded/found on demand. Don't recreate the fat H5 horde/core.
+- Need some mechanism loosely to tie agnostic drivers like DB, LDAP to a reusable config format and appropriate factories.
 - Set up the namespaced version of Horde\Injector as a PSR-11 container.
 - The application is responsible for announcing capabilities and integration points in a granular, idiomatic way. Registry works with the PSR-11 container for any real registration and composition business.
 - Applications can have individual constructors and can announce a DI container configuration method through an interface.

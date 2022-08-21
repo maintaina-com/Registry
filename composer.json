@@ -16,10 +16,14 @@
     ],
     "require": {
         "php": "^8.1",
-        "psr/container": "^2.0" 
+        "psr/container": "^2.0",
+        "psr/simple-cache": "^3",
+        "horde/injector": "^3.0" 
     },
     "require-dev": {
-        "horde/test": "^3.0"
+        "horde/test": "^3.0",
+        "phpunit/phpunit": "*",
+        "rector/rector": "^0.14.0"
     },
     "authors": [
      {
