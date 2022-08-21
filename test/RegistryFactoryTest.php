@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Copyright 2009-2021 Horde LLC (http://www.horde.org/)
  *
@@ -14,6 +16,8 @@
 
 namespace Horde\Registry\Test;
 
+use Horde\Registry\ComposerBackedRegistry;
+use Horde\Registry\RegistryFactory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -24,6 +28,10 @@ use PHPUnit\Framework\TestCase;
  * @author   Gunnar Wrobel <wrobel@pardus.de>
  * @license  http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class RegistryTest extends TestCase
+class RegistryFactoryTest extends TestCase
 {
+    public function testCreateComposerBackedRegistry()
+    {
+        $this->assertInstanceOf(ComposerBackedRegistry::class, RegistryFactory::createComposerBackedRegistry());
+    }
 }
