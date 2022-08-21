@@ -1,0 +1,12 @@
+---
+1.0.0alpha1:
+  api: 1.0.0
+  state:
+    release: alpha
+    api: alpha
+  date: 2022-08-20
+  license:
+    identifier: LGPL-2.1
+    uri: http://www.horde.org/licenses/lgpl
+  notes: |
+    [rla] Initial package - started from zero code, but concepts from horde/core's registry.

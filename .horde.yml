@@ -1,0 +1,35 @@
+---
+id: Registry
+name: Registry
+full: Horde Registry implementation
+description: >-
+  A library that provides the bootstrapping and introspection bits for a horde installation
+list: dev
+type: library
+homepage: https://www.horde.org/libraries/
+authors:
+  -
+    name: Ralf Lang
+    user: rlang
+    email: ralf.lang@ralf-lang.de
+    active: true
+    role: lead
+version:
+  release: 1.0.0alpha1
+  api: 1.0.0alpha1
+state:
+  release: alpha
+  api: alpha
+license:
+  identifier: LGPL-2.1-only
+  uri: http://www.horde.org/licenses/lgpl21
+dependencies:
+  required:
+    php: ^8.1
+    composer:
+      composer-runtime-api: ^2.2
+      psr/container: ^2.0
+      psr/container-implementation: ^2.0
+  dev:
+    composer:
+      horde/test: ^3
